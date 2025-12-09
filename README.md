@@ -1,5 +1,5 @@
 # 💫 About Me:
-Front End Web Developer<br>Machine Learning<br>Exploring Cross Platform App Development & MERN
+Front End Web Developer<br>Machine Learning<br>Exploring Cross Platform App Development & Backend
 
 
 ## 🌐 Socials:
