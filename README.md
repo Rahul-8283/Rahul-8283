@@ -26,15 +26,15 @@
 
 <div align="center">
   <a href="https://github.com/Rahul-8283">
-    <img src="https://github-readme-stats.vercel.app/api?username=Rahul-8283&count_private=true&show_icons=true&bg_color=1a1110&title_color=e0a662&text_color=fff&icon_color=e0a662&hide_border=true" height="160" />
+    <img src="https://github-readme-stats.vercel.app/api?username=Rahul-8283&count_private=true&show_icons=true&bg_color=1a1110&title_color=e0a662&text_color=ffffff&icon_color=e0a662&hide_border=true" height="160" />
   </a>
   <a href="https://github.com/Rahul-8283">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rahul-8283&layout=compact&bg_color=1a1110&title_color=e0a662&text_color=fff&hide_border=true" height="160" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rahul-8283&layout=compact&bg_color=1a1110&title_color=e0a662&text_color=ffffff&hide_border=true" height="160" />
   </a>
 </div>
 
 <div align="center">
-  <img src="https://nirzak-streak-stats.vercel.app/?user=Rahul-8283&background=1a1110&border=e0a662&stroke=e0a662&ring=e0a662&fire=e0a662&currStreakLabel=e0a662&sideLabels=fff&dates=fff&hide_border=true" />
+  <img src="https://nirzak-streak-stats.vercel.app/?user=Rahul-8283&background=1a1110&border=e0a662&stroke=e0a662&ring=e0a662&fire=e0a662&currStreakLabel=e0a662&currStreakNum=ffffff&sideLabels=e0a662&sideNums=ffffff&dates=ffffff&hide_border=true" />
 </div>
 
 <br/>
