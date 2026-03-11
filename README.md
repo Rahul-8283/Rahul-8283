@@ -8,7 +8,7 @@
   </a>
 
   <p>
-    <a href="https://linkedin.com/in/rahul-l-s-100a20343">
+    <a href="https://linkedin.com/in/rahul-ls">
       <img src="https://img.shields.io/badge/LinkedIn-%232e1a16.svg?style=for-the-badge&logo=linkedin&logoColor=%23e0a662"/>
     </a>
     <a href="https://instagram.com/rahul._ls_">
