@@ -1,5 +1,4 @@
-
-<div align="center">
+<!-- <div align="center">
 
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2e1a16,100:e0a662&height=220&section=header&text=Rahul%20L%20S&fontSize=65&fontAlignY=35&animation=fadeIn&fontColor=ffffff" />
 
@@ -23,4 +22,8 @@
   </p>
 
 </div>
+ -->
 
+<div align="center"> 
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWp5cHFzMGRiNXY4dWljcDh6a3c1ZzRuMWV6dTVtMjlwZ2dpMHJxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FQ8vWwIkUVqll3dW3w/giphy.gif" alt="Coffee GIF" width="650" /> 
+</div>
