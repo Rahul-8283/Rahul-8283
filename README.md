@@ -1,8 +1,9 @@
 <div align="center">
-  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWp5cHFzMGRiNXY4dWljcDh6a3c1ZzRuMWV6dTVtMjlwZ2dpMHJxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FQ8vWwIkUVqll3dW3w/giphy.gif" alt="Coffee GIF" width="650" />
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWp5cHFzMGRiNXY4dWljcDh6a3c1ZzRuMWV6dTVtMjlwZ2dpMHJxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FQ8vWwIkUVqll3dW3w/giphy.gif" alt="Coffee GIF" width="600" />
 </div>
 
 <br>
+
 <p align="center">
 
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -49,3 +50,19 @@
 <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 
 </p>
+
+<br>
+
+<div align="center">
+
+<a href="https://www.linkedin.com/in/rahul-ls" target="_blank">
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+<a href="mailto:lsrahul12@gmail.com">
+  <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+</a>
+<a href="https://rahul-ls-ai.vercel.app/" target="_blank">
+  <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+</a>
+
+</div>
