@@ -61,25 +61,11 @@
 </div> -->
 
 
-
-
 <div align="center">
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWp5cHFzMGRiNXY4dWljcDh6a3c1ZzRuMWV6dTVtMjlwZ2dpMHJxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FQ8vWwIkUVqll3dW3w/giphy.gif" alt="Coffee GIF" width="600"/>
 </div>
+
 <br>
-
-```console
-rahul-ls@github:~$ ls
-Languages/
-Frontend/
-Backend/
-AI-ML/
-LLM/
-Databases/
-Tools/
-```
-
----
 
 ```console
 rahul-ls@github:~$ cd Languages
@@ -93,10 +79,8 @@ rahul-ls@github:~/Languages$ ls
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
 </p>
 
----
-
 ```console
-rahul-ls@github:~$ cd Frontend
+rahul-ls@github:~/Languages$ cd ../Frontend
 rahul-ls@github:~/Frontend$ ls
 ```
 
@@ -108,10 +92,8 @@ rahul-ls@github:~/Frontend$ ls
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
 </p>
 
----
-
 ```console
-rahul-ls@github:~$ cd Backend
+rahul-ls@github:~/Frontend$ cd ../Backend
 rahul-ls@github:~/Backend$ ls
 ```
 
@@ -122,10 +104,8 @@ rahul-ls@github:~/Backend$ ls
 <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/>
 </p>
 
----
-
 ```console
-rahul-ls@github:~$ cd AI-ML
+rahul-ls@github:~/Backend$ cd ../AI-ML
 rahul-ls@github:~/AI-ML$ ls
 ```
 
@@ -135,10 +115,8 @@ rahul-ls@github:~/AI-ML$ ls
 <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
 </p>
 
----
-
 ```console
-rahul-ls@github:~$ cd LLM
+rahul-ls@github:~/AI-ML$ cd ../LLM
 rahul-ls@github:~/LLM$ ls
 ```
 
@@ -150,10 +128,8 @@ rahul-ls@github:~/LLM$ ls
 <img src="https://img.shields.io/badge/pgVector-336791?style=for-the-badge"/>
 </p>
 
----
-
 ```console
-rahul-ls@github:~$ cd Databases
+rahul-ls@github:~/LLM$ cd ../Databases
 rahul-ls@github:~/Databases$ ls
 ```
 
@@ -166,10 +142,8 @@ rahul-ls@github:~/Databases$ ls
 <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
 </p>
 
----
-
 ```console
-rahul-ls@github:~$ cd Tools
+rahul-ls@github:~/Databases$ cd ../Tools
 rahul-ls@github:~/Tools$ ls
 ```
 
@@ -182,11 +156,9 @@ rahul-ls@github:~/Tools$ ls
 <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
 </p>
 
----
-
 ```console
+rahul-ls@github:~/Tools$ cd ..
 rahul-ls@github:~$ ./connect.sh
-Launching connections...
 ```
 
 <div align="center">
@@ -209,3 +181,5 @@ Launching connections...
 rahul-ls@github:~$ exit
 Connection closed.
 ```
+
+
