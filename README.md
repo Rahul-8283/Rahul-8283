@@ -134,7 +134,7 @@ rahul-ls@github:~/Databases$ ls
 ```
 
 <p>
-<img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge"/>
+<!-- <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge"/> -->
 <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
 <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
 <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>
