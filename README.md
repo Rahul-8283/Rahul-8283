@@ -1,4 +1,4 @@
-<div align="center">
+<!-- <div align="center">
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWp5cHFzMGRiNXY4dWljcDh6a3c1ZzRuMWV6dTVtMjlwZ2dpMHJxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FQ8vWwIkUVqll3dW3w/giphy.gif" alt="Coffee GIF" width="600" />
 </div>
 <br>
@@ -13,10 +13,10 @@
 <a href="mailto:lsrahul12@gmail.com">
   <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
 </a>
-</div>
+</div> -->
 
 
-<!-- <div align="center">
+<div align="center">
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWp5cHFzMGRiNXY4dWljcDh6a3c1ZzRuMWV6dTVtMjlwZ2dpMHJxbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FQ8vWwIkUVqll3dW3w/giphy.gif" alt="Coffee GIF" width="600"/>
 </div>
 <br>
@@ -34,8 +34,8 @@ rahul-ls@github:~/Languages$ ls
 </p>
 
 ```console
-rahul-ls@github:~/Languages$ cd ../Frontend
-rahul-ls@github:~/Frontend$ ls
+rahul-ls@github:~/Languages$ cd ../Client-Side
+rahul-ls@github:~/Client-Side$ ls
 ```
 
 <p>
@@ -47,8 +47,8 @@ rahul-ls@github:~/Frontend$ ls
 </p>
 
 ```console
-rahul-ls@github:~/Frontend$ cd ../Backend
-rahul-ls@github:~/Backend$ ls
+rahul-ls@github:~/Client-Side$ cd ../Server-Side
+rahul-ls@github:~/Server-Side$ ls
 ```
 
 <p>
@@ -59,7 +59,20 @@ rahul-ls@github:~/Backend$ ls
 </p>
 
 ```console
-rahul-ls@github:~/Backend$ cd ../AI-ML
+rahul-ls@github:~/Server-Side$ cd ../Databases
+rahul-ls@github:~/Databases$ ls
+```
+
+<p>
+<img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
+<img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>
+<img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"/>
+<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
+</p>
+
+```console
+rahul-ls@github:~/Databases$ cd ../AI-ML
 rahul-ls@github:~/AI-ML$ ls
 ```
 
@@ -79,24 +92,12 @@ rahul-ls@github:~/LLM$ ls
 <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/LangGraph-4B32C3?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/Pinecone-0ECF83?style=for-the-badge&logo=pinecone&logoColor=white"/>
+<img src="https://img.shields.io/badge/ChromaDB-5A4FCF?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/pgVector-336791?style=for-the-badge"/>
 </p>
 
 ```console
-rahul-ls@github:~/LLM$ cd ../Databases
-rahul-ls@github:~/Databases$ ls
-```
-
-<p>
-<img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
-<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
-<img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"/>
-<img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"/>
-<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
-</p>
-
-```console
-rahul-ls@github:~/Databases$ cd ../Tools
+rahul-ls@github:~/LLM$ cd ../Tools
 rahul-ls@github:~/Tools$ ls
 ```
 
@@ -133,4 +134,4 @@ rahul-ls@github:~$ ./connect.sh
 ```console
 rahul-ls@github:~$ exit
 Connection closed.
-``` -->
+```
