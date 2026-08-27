@@ -65,9 +65,13 @@ rahul-ls@github:~/Databases$ ls
 ```
 <p>
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/CouchDB-EA2328?style=for-the-badge&logo=apachecouchdb&logoColor=white" alt="CouchDB"/>
+  <!-- <img src="https://img.shields.io/badge/CouchDB-EA2328?style=for-the-badge&logo=apachecouchdb&logoColor=white" alt="CouchDB"/> -->
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
   <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis"/>
+  <img src="https://img.shields.io/badge/Neo4j-4581C3?style=for-the-badge&logo=neo4j&logoColor=white" alt="Neo4j"/>
+  <img src="https://img.shields.io/badge/Pinecone-0ECF83?style=for-the-badge&logo=pinecone&logoColor=white" alt="Pinecone"/>
+  <img src="https://img.shields.io/badge/ChromaDB-5A4FCF?style=for-the-badge" alt="ChromaDB"/>
+  <img src="https://img.shields.io/badge/pgVector-336791?style=for-the-badge" alt="pgVector"/>
   <img src="https://img.shields.io/badge/Turso-4FF8D2?style=for-the-badge&logo=turso&logoColor=black" alt="Turso"/>
   <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase"/>
   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase"/>
@@ -77,29 +81,17 @@ rahul-ls@github:~/Databases$ ls
 rahul-ls@github:~/Databases$ cd ../AI-ML
 rahul-ls@github:~/AI-ML$ ls
 ```
-
 <p>
 <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"/>
 <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white"/>
 <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
-</p>
-
-```console
-rahul-ls@github:~/AI-ML$ cd ../LLM
-rahul-ls@github:~/LLM$ ls
-```
-
-<p>
-<img src="https://img.shields.io/badge/RAG-FF6F00?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/LangGraph-4B32C3?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Pinecone-0ECF83?style=for-the-badge&logo=pinecone&logoColor=white"/>
-<img src="https://img.shields.io/badge/ChromaDB-5A4FCF?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/pgVector-336791?style=for-the-badge"/>
 </p>
 
+
 ```console
-rahul-ls@github:~/LLM$ cd ../Tools
+rahul-ls@github:~/AI-ML$ cd ../Tools
 rahul-ls@github:~/Tools$ ls
 ```
 
