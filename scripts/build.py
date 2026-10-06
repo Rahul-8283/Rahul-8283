@@ -280,7 +280,7 @@ def appear(t):
 
 def terminal(x, y, w, h):
     session = [
-        ("whoami", [[("rahul", "#d9dee2", 0)]]),
+        ("whoami", [[("rahul-ls", "#d9dee2", 0)]]),
         ("ls work/", [[(d, "#a3c2dc", i * 11) for i, d in enumerate(["web/", "mobile/", "desktop/", "ai/"])]]),
         ("cat .motto", [[(MOTTO, "#d9dee2", 0)]]),
     ]
