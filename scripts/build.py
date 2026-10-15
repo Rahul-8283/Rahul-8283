@@ -276,27 +276,27 @@ def stamp(cx, cy):
 
 
 def dossier():
-    W, H = 880, 930
-    px, py, pw, ph = 112, 352, 656, 494
+    W, H = 880, 694
+    px, py, pw, ph = 112, 236, 656, 408
     body = [
         f'<rect width="{W}" height="{H}" rx="14" fill="{NIGHT}"/>',
         f'<rect width="{W}" height="{H}" rx="14" fill="url(#lamp)"/>',
         f'<rect width="{W}" height="{H}" rx="14" filter="url(#grain)"/>',
         f'<rect x="18.5" y="18.5" width="{W - 37}" height="{H - 37}" rx="6" fill="none" stroke="{GOLD}" stroke-opacity=".35"/>',
         f'<rect x="24.5" y="24.5" width="{W - 49}" height="{H - 49}" rx="4" fill="none" stroke="{GOLD}" stroke-opacity=".18"/>',
-        text(W / 2, 84, "The Case of", "serif", 24, GOLD, font_style="italic", text_anchor="middle"),
+        text(W / 2, 66, "The Case of", "serif", 20, GOLD, font_style="italic", text_anchor="middle"),
         '<g>'
-        + text(W / 2 + 7, 178, NAME, "serif", 84, "#efe7d6", font_weight="600", text_anchor="middle",
-               letter_spacing="14")
+        + text(W / 2 + 5, 132, NAME, "serif", 64, "#efe7d6", font_weight="600", text_anchor="middle",
+               letter_spacing="11")
         + '</g>',
         '<g>'
-        + text(W / 2, 226, EPIGRAPH, "serif", 23, "#b9ae99", font_style="italic", text_anchor="middle")
+        + text(W / 2, 170, EPIGRAPH, "serif", 19.5, "#b9ae99", font_style="italic", text_anchor="middle")
         + '</g>',
         '<g>'
-        + text(W / 2, 282, "    ·    ".join(ROLES), "type", 11.5, "#8f8676", text_anchor="middle",
+        + text(W / 2, 204, "    ·    ".join(ROLES), "type", 10.5, "#8f8676", text_anchor="middle",
                letter_spacing="3.2")
         + '</g>',
-        f'<g transform="translate(790 842) scale(.4)">{SMILEY.format(c=RED)}'
+        f'<g transform="translate(800 {H - 72}) scale(.36)">{SMILEY.format(c=RED)}'
         + "".join(f'<circle cx="{a}" cy="{b}" r="{r}" fill="{RED}" opacity=".85"/>' for a, b, r in SPATTER)
         + '</g>',
     ]
@@ -305,29 +305,29 @@ def dossier():
     sheet.append(f'<g filter="url(#rough)" fill="none" stroke="#7b5326">'
                  f'<circle cx="{px + pw - 120}" cy="{py + ph - 70}" r="47" stroke-width="3.5" opacity=".16"/>'
                  f'<circle cx="{px + pw - 116}" cy="{py + ph - 66}" r="44" stroke-width="1.2" opacity=".12"/></g>')
-    sheet.append(f'<path d="M{px + 40} {py + 46}V{py - 14}a10 10 0 0 1 20 0V{py + 40}a6 6 0 0 1 -12 0V{py - 6}" '
+    sheet.append(f'<path d="M{px + 28} {py + 34}V{py - 14}a10 10 0 0 1 20 0V{py + 28}a6 6 0 0 1 -12 0V{py - 6}" '
                  f'fill="none" stroke="url(#steel)" stroke-width="2.6" stroke-linecap="round"/>')
-    sheet.append(fingerprint(px + pw - 128, py + 158))
+    sheet.append(fingerprint(px + pw - 168, py + 146))
     tx = px + 52
-    y = py + 60
+    y = py + 46
     for label, value in FILE:
         dots = "." * (14 - len(label)) if len(label) < 12 else ".."
         sheet.append(text(tx, y, f"{label} {dots}", "type", 13, FADED))
         sheet.append(text(tx + 128, y, value, "type", 13.5, INK, font_weight="700" if label == "SUBJECT" else "400"))
-        y += 23
-    sheet.append(stamp(px + pw - 92, py + 78))
-    y += 18
+        y += 21
+    sheet.append(stamp(px + pw - 92, py + 68))
+    y += 10
     sheet.append(f'<path d="M{tx} {y}h{pw - 104}" stroke="{INK}" stroke-opacity=".35" stroke-dasharray="2 3"/>')
-    y += 38
+    y += 30
     sheet.append(text(tx, y, "THE READING", "type", 13, INK, font_weight="700", letter_spacing="4"))
     sheet.append(text(tx + 150, y, "what he gives away without saying", "serif", 17, FADED, font_style="italic"))
-    y += 40
+    y += 34
     for n, (obs, inf) in enumerate(READING):
         sheet.append(text(tx, y, ["I.", "II.", "III."][n], "serif", 17, RED, font_weight="600"))
         sheet.append(text(tx + 36, y, obs, "type", 12.5, FADED))
-        sheet.append(text(tx + 36, y + 26, inf, "serif", 20.5, INK, font_style="italic", font_weight="500"))
-        y += 66
-    note_x, note_y = px + pw - 372, py + ph - 24
+        sheet.append(text(tx + 36, y + 24, inf, "serif", 19.5, INK, font_style="italic", font_weight="500"))
+        y += 56
+    note_x, note_y = px + pw - 372, py + ph - 18
     sheet.append(f'<g transform="rotate(-3 {note_x} {note_y})">'
                  + text(note_x, note_y, MARGIN_NOTE, "hand", 23, RED, opacity=".88")
                  + f'<path d="M{note_x + 352} {note_y - 18}c14 10 16 26 6 40m0 0l-2-10m2 10l9-5" fill="none" '
