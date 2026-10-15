@@ -4,6 +4,7 @@
 Edit the text constants or STACK below, then run:  python3 scripts/build.py
 """
 import base64
+import math
 import hashlib
 import html
 import re
@@ -515,79 +516,206 @@ def clipping():
 
 # ---------------------------------------------------------------- the couch
 
+def chesterfield():
+    leather, roll = "url(#leather)", "url(#roll)"
+    rows = [168, 192, 214]
+    buttons = [(x, y) for r, y in enumerate(rows) for x in range(262 + (r % 2) * 22, 628, 44)]
+    creases = []
+    for (ax, ay) in buttons:
+        for (bx, by) in buttons:
+            if 0 < by - ay < 30 and abs(bx - ax) == 22:
+                creases.append(f"M{ax} {ay}L{bx} {by}")
+    tufting = (f'<path d="{"".join(creases)}" stroke="#1f1108" stroke-opacity=".45" stroke-width="1.3"/>'
+               f'<path d="{"".join(creases)}" stroke="#b07a48" stroke-opacity=".22" transform="translate(0 1.4)"/>'
+               + "".join(f'<circle cx="{x}" cy="{y}" r="2.3" fill="#24130a"/><circle cx="{x - .6}" cy="{y - .7}" r=".8" fill="#c08850" opacity=".6"/>'
+                         for x, y in buttons))
+
+    def arm(cx):
+        fan = "".join(f'M{cx} 186L{cx + 34 * math.cos(a):.1f} {186 - 34 * math.sin(a):.1f}'
+                      for a in [i * 3.14159 / 10 for i in range(1, 10)])
+        nails = "".join(f'<circle cx="{cx + 37 * math.cos(a):.1f}" cy="{188 - 37 * math.sin(a):.1f}" r="1.3" fill="#d4ae6e" opacity=".75"/>'
+                        for a in [i * 3.14159 / 16 for i in range(0, 17)])
+        nails += "".join(f'<circle cx="{cx + dx}" cy="{y}" r="1.3" fill="#d4ae6e" opacity=".75"/>'
+                         for dx in (-37, 37) for y in range(196, 286, 9))
+        return (f'<path d="M{cx - 40} 290V188C{cx - 40} 162 {cx - 22} 146 {cx} 146S{cx + 40} 162 {cx + 40} 188V290z" fill="{leather}"/>'
+                f'<path d="M{cx - 40} 188C{cx - 40} 162 {cx - 22} 146 {cx} 146S{cx + 40} 162 {cx + 40} 188" fill="none" stroke="#b9824e" stroke-opacity=".5" stroke-width="2"/>'
+                f'<path d="{fan}" stroke="#1f1108" stroke-opacity=".5" stroke-width="1.2"/>'
+                f'<circle cx="{cx}" cy="186" r="4" fill="{roll}"/><circle cx="{cx}" cy="186" r="4" fill="none" stroke="#24130a"/>'
+                + nails)
+
+    return (
+        '<ellipse cx="440" cy="304" rx="300" ry="10" fill="#000" opacity=".6" filter="url(#lift)"/>'
+        + "".join(f'<path d="M{x} 288h18v8c0 6-4 9-9 9s-9-3-9-9z" fill="url(#wood)"/>' for x in (222, 300, 562, 640))
+        + f'<rect x="246" y="146" width="388" height="90" rx="20" fill="{leather}"/>'
+        f'<path d="M262 149.5H618" stroke="#c48f58" stroke-opacity=".45" stroke-width="2.5" stroke-linecap="round"/>'
+        + tufting
+        + f'<path d="M244 222h392q8 0 8 8v24q0 8-8 8H244q-8 0-8-8v-24q0-8 8-8z" fill="url(#seat)"/>'
+        f'<path d="M248 223.5h384" stroke="#d29a62" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>'
+        f'<path d="M440 224v36" stroke="#1f1108" stroke-opacity=".55" stroke-width="1.4"/>'
+        f'<rect x="238" y="260" width="404" height="30" rx="4" fill="#3a2112"/>'
+        + "".join(f'<circle cx="{x}" cy="267" r="1.3" fill="#d4ae6e" opacity=".7"/>' for x in range(246, 636, 9))
+        + arm(240) + arm(640)
+    )
+
+
+def jane():
+    """Patrick Jane asleep flat on his back on the seat, ankles crossed on the right arm."""
+    skin_dk, hair_dk, hair_hi = "#b98463", "#8a6430", "#ecd08f"
+    suit, waistcoat = "url(#suit)", "#3e3933"
+
+    # head drawn upright in profile (facing +x), then laid down face-up with rotate(-84)
+    curls = [(12, -21, 4.8), (5, -28.5, 5.6), (-4, -32, 5.8), (-13.5, -30, 5.8), (-21.5, -24.5, 5.8),
+             (-27, -15.5, 5.6), (-29, -5.5, 5.4), (-28, 4.5, 5.2), (-25, 13, 5), (-19.5, 19, 4.6), (-13, 21.5, 4.2)]
+    waves = [(6, -27, 14), (-3, -30, 18), (-14, -27, 25), (-22, -20, 40), (-26, -10, 60), (-26, 1, 80),
+             (-23, 11, 95), (-6, -23, 20), (-15, -17, 40), (-20, -6, 70), (2, -19, 15), (-12, -8, 55), (-17, 6, 85)]
+    hair = (
+        '<path d="M14 -17C13 -29 2 -34 -9 -33C-21 -32 -29 -23 -30 -10C-31 2 -28 12 -23 18C-19 22 -14 24 -10 22'
+        'C-11 15 -10 9 -7 4C-4 -3 1 -9 7 -12C10 -14 12 -15 14 -17Z" fill="url(#hairF)"/>'
+        + "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="url(#hairF)"/>' for x, y, r in curls)
+        + "".join(f'<path transform="rotate({a} {x} {y})" d="M{x - 6} {y}q3-3.4 6 0t6 0" fill="none" stroke="{hair_dk}" '
+                  f'stroke-width="1.1" stroke-linecap="round" opacity=".55"/>' for x, y, a in waves)
+        + "".join(f'<path transform="rotate({a} {x} {y - 2})" d="M{x - 4} {y - 2}q2-2.4 4 0" fill="none" stroke="{hair_hi}" '
+                  f'stroke-width="1.2" stroke-linecap="round" opacity=".7"/>' for x, y, a in waves[::2])
+    )
+    head = (
+        '<path d="M8 28L9 44L-11 44L-12 22z" fill="#cf9b77"/>'
+        f'<path d="M2 30C4 36 5 40 5 44" fill="none" stroke="{skin_dk}" stroke-width="1.6" opacity=".5"/>'
+        '<path d="M-2 -27C8 -28 16 -22 18 -12C19 -8 19 -6 18 -4C19 -1 21 2 24 8C22 10 20 10 19 10.5'
+        'C20 12 20 13 19.5 14L18 15C19.5 16 19.5 17.5 18.5 18.5C17 19.5 16.5 20 17 22C17.5 25 15 27 11 27.5'
+        'C9 28 8 29 8 31L-12 31L-12 24C-18 18 -21 8 -21 -2C-21 -18 -12 -27 -2 -27Z" fill="url(#skinF)"/>'
+        f'<path d="M-4 15C1 21 6 24 12 26" fill="none" stroke="{skin_dk}" stroke-width="2" stroke-linecap="round" opacity=".3"/>'
+        f'<path d="M15 2C17 6 19 8 21.5 8.5" fill="none" stroke="{skin_dk}" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>'
+        '<path d="M8 -3.2Q12 -.4 16.2 -2.8" fill="none" stroke="#4e2f1f" stroke-width="1.2" stroke-linecap="round"/>'
+        '<path d="M10.6 -1.7l-.2 1.2M13.4 -1.7l.2 1.2" stroke="#4e2f1f" stroke-width=".6" stroke-linecap="round" opacity=".8"/>'
+        '<path d="M8 -7.6Q12.5 -9.8 17.2 -7.4" fill="none" stroke="#a57a42" stroke-width="1.5" stroke-linecap="round" opacity=".9"/>'
+        '<path d="M19.4 9.2q1.4-1.1 2.6-.1" fill="none" stroke="#8f5a40" stroke-width="1" stroke-linecap="round"/>'
+        '<path d="M15.4 14.9q1.8 1.3 3.8.4" fill="none" stroke="#8f5a40" stroke-width="1.1" stroke-linecap="round"/>'
+        + hair
+        + '<ellipse cx="-6.5" cy="2.5" rx="4.4" ry="6.6" fill="#cf9b77"/>'
+        '<path d="M-5 -1.5c2.4 1 2.6 5.5.4 7.6" fill="none" stroke="#8f5a40" stroke-width="1" stroke-linecap="round"/>'
+        + "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="url(#hairF)"/>' for x, y, r in [(-9, -5, 4.6), (-3.5, -8, 4)])
+    )
+
+    torso = (
+        f'<path d="M338 194C352 184 366 180 384 178C410 176 432 180 452 186C464 190 474 192 486 194L490 222L344 222'
+        f'C339 214 337 204 338 194Z" fill="{suit}"/>'
+        f'<path d="M342 192C356 184 368 182 384 180C410 178 432 182 452 188C464 192 474 194 486 196L486 204'
+        f'C474 202 464 200 452 196C432 190 410 186 384 188C368 190 356 192 344 199Z" fill="{waistcoat}"/>'
+        + "".join(f'<circle cx="{x}" cy="{y}" r="1.5" fill="#191613"/><circle cx="{x - .4}" cy="{y - .5}" r=".5" fill="#a39a8c"/>'
+                  for x, y in [(394, 182.6), (414, 182.4), (434, 185), (454, 190.6)])
+        + f'<path d="M352 196C376 194 406 194 432 198C452 201 470 206 488 212" fill="none" stroke="#17140f" stroke-width="1.4" opacity=".7"/>'
+        f'<path d="M352 198.4C376 196.4 406 196.4 432 200.4" fill="none" stroke="#7c7266" stroke-width=".9" opacity=".45"/>'
+        f'<path d="M334 188C340 183 350 182 358 186L355 198C349 195 342 196 336 200Z" fill="#ece8de"/>'
+        f'<path d="M337 186C341 181 346 180 351 181L351 188C346 187 341 188 337 191z" fill="#f6f3ec"/>'
+        f'<path d="M350 182C355 181 359 183 361 186L356 192C355 189 353 188 350 188z" fill="#ddd8cc"/>'
+    )
+    arm = (
+        f'<path d="M346 194C366 197 390 204 412 210C421 212 423 220 414 222C390 220 364 214 344 208Z" fill="{suit}"/>'
+        f'<path d="M354 200C374 204 394 210 410 214" fill="none" stroke="#17140f" stroke-width="1" opacity=".4"/>'
+        f'<path d="M405 207C417 200 427 194 435 188L446 198C436 206 426 214 416 221Z" fill="{suit}"/>'
+        f'<path d="M433 186l7-4 9 12-6 5z" fill="#ece8de"/>'
+        f'<ellipse cx="455" cy="188" rx="11" ry="7" transform="rotate(-14 455 188)" fill="{skin_dk}"/>'
+        f'<ellipse cx="454" cy="185.5" rx="10" ry="6.4" transform="rotate(-14 454 185.5)" fill="url(#skinF)"/>'
+        f'<path d="M448 183l8 2.6M449 180.4l8 2.8M452 178.8l6 2" stroke="{skin_dk}" stroke-width=".9" stroke-linecap="round"/>'
+    )
+    legs = (
+        f'<path d="M476 190C498 186 526 180 554 177C578 174 600 162 618 149L624 164C606 174 588 186 568 198'
+        f'C548 208 518 216 486 218Z" fill="#26231f"/>'
+        f'<path d="M616 146C620 138 626 130 632 123C636 117 644 116 647 121C650 128 642 142 634 156C630 161 624 163 619 161Z" fill="#2a1a0e"/>'
+        f'<path d="M478 194C500 190 528 184 556 182C580 178 604 166 624 154L632 170C612 178 592 192 572 204'
+        f'C552 214 520 222 488 223Z" fill="{suit}"/>'
+        f'<path d="M486 197C508 193 532 188 556 185.5C578 182 600 172 620 159" fill="none" stroke="#8a8073" stroke-width=".9" opacity=".5"/>'
+        f'<path d="M552 186c4 3 9 4 14 3M560 196c3 2 7 3 10 2" fill="none" stroke="#17140f" stroke-width="1" opacity=".45"/>'
+        f'<path d="M621 154l6-2.4 7 16.6-5 2.4z" fill="#1d1916"/>'
+        f'<path d="M626 153C630 145 636 137 642 129C646 123 654 122 657 127C660 134 652 149 644 163C640 168 634 171 628 169Z" fill="url(#shoe)"/>'
+        f'<path d="M657 127C660 134 652 149 644 163C640 168 634 171 628 169" fill="none" stroke="#120a05" stroke-width="2.2" stroke-linecap="round"/>'
+        f'<path d="M635 142c4-5 8-10 13-13" fill="none" stroke="#c7925e" stroke-width="1.1" stroke-linecap="round" opacity=".55"/>'
+    )
+    return (torso + legs + arm
+            + f'<g transform="translate(306 196) rotate(-84) scale(.78)">{head}</g>')
+
+
+def teacup_side(cx, floor):
+    return (
+        f'<ellipse cx="{cx}" cy="{floor - 1}" rx="27" ry="5.5" fill="#000" opacity=".5" filter="url(#lift)"/>'
+        f'<ellipse cx="{cx}" cy="{floor - 4}" rx="26" ry="5" fill="url(#chinaSide)"/>'
+        f'<ellipse cx="{cx}" cy="{floor - 5}" rx="17" ry="2.6" fill="#cfc8b8"/>'
+        f'<path d="M{cx + 15} {floor - 21}c10-3 11 10 1 11" fill="none" stroke="url(#chinaSide)" stroke-width="3.4"/>'
+        f'<path d="M{cx - 16} {floor - 26}C{cx - 16} {floor - 12} {cx - 9} {floor - 6} {cx} {floor - 6}S{cx + 16} {floor - 12} {cx + 16} {floor - 26}z" fill="url(#chinaSide)"/>'
+        f'<path d="M{cx - 15.6} {floor - 21.5}h31.2" stroke="#4f74a3" stroke-width="2"/>'
+        f'<ellipse cx="{cx}" cy="{floor - 26}" rx="16" ry="3.6" fill="#f6f3ec" stroke="#c8c0b0" stroke-width=".8"/>'
+        f'<ellipse cx="{cx}" cy="{floor - 25.6}" rx="13.4" ry="2.5" fill="#6b3e18"/>'
+        f'<g class="steam" fill="none" stroke="#e9dcc4" stroke-width="1.6" stroke-linecap="round">'
+        f'<path d="M{cx - 4} {floor - 32}c-5-6 4-10 0-16s3-9 1-13"/>'
+        f'<path d="M{cx + 5} {floor - 34}c-4-5 4-8 0-13s3-7 1-10" style="animation-delay:1.6s"/></g>'
+    )
+
+
+def floor_lamp(x, floor):
+    return (
+        f'<path d="M{x - 30} 158L{x + 30} 158L{x + 120} {floor}L{x - 260} {floor}Z" fill="url(#cone)"/>'
+        f'<ellipse cx="{x}" cy="{floor - 1}" rx="18" ry="4" fill="#1a1510"/>'
+        f'<rect x="{x - 1.6}" y="150" width="3.2" height="{floor - 151}" fill="url(#brass)"/>'
+        f'<path d="M{x - 18} 118h36l11 40h-58z" fill="url(#shade)"/>'
+        f'<ellipse cx="{x}" cy="158" rx="29" ry="4" fill="#fff1c9" opacity=".75"/>'
+    )
+
+
 def couch():
-    W, H = 880, 330
-    leather = "url(#leather)"
-    tufts = "".join(f'<circle cx="{x}" cy="{y}" r="1.8" fill="#2a170b" opacity=".7"/>'
-                    for r, y in enumerate(range(150, 196, 16))
-                    for x in range(268 + (r % 2) * 18, 620, 36))
-    sofa = (
-        f'<ellipse cx="440" cy="272" rx="270" ry="12" fill="#000" opacity=".55" filter="url(#lift)"/>'
-        f'<rect x="248" y="268" width="10" height="16" rx="2" fill="#24150b"/>'
-        f'<rect x="622" y="268" width="10" height="16" rx="2" fill="#24150b"/>'
-        f'<rect x="242" y="132" width="396" height="86" rx="20" fill="{leather}"/>{tufts}'
-        f'<rect x="230" y="206" width="420" height="44" rx="12" fill="url(#seat)"/>'
-        f'<rect x="232" y="242" width="416" height="28" rx="6" fill="#3b2213"/>'
-        f'<path d="M236 248h408" stroke="#a87445" stroke-opacity=".35" stroke-dasharray="1.5 4"/>'
-        f'<path d="M208 270V170c0-22 10-34 32-34h12c18 0 26 12 26 30v104z" fill="{leather}"/>'
-        f'<ellipse cx="242" cy="150" rx="34" ry="18" fill="url(#roll)"/>'
-        f'<path d="M602 270V166c0-18 8-30 26-30h12c22 0 32 12 32 34v100z" fill="{leather}"/>'
-        f'<ellipse cx="638" cy="150" rx="34" ry="18" fill="url(#roll)"/>'
-    )
-    suit, suit_far, shirt, skin, hair = "#30343a", "#24272c", "#e9e4d8", "#d8a983", "#c99a52"
-    man = (
-        # far leg, then near leg, crossed at the ankle on the right arm
-        f'<path d="M410 184Q460 166 512 158Q560 152 606 144L610 160Q562 168 518 176Q466 190 412 210z" fill="{suit_far}"/>'
-        f'<path d="M612 142c14-4 30-6 42-2 6 2 6 9 0 11-14 4-28 6-40 6z" fill="#4a2c18"/>'
-        f'<path d="M406 190Q462 172 520 164Q566 160 604 154L608 172Q568 176 524 184Q470 198 408 214z" fill="{suit}"/>'
-        f'<path d="M520 166Q540 164 560 163" stroke="#41464e" stroke-width="1.2" fill="none"/>'
-        f'<path d="M606 156c16-3 34-3 46 2 6 3 5 10-1 11-14 3-30 4-42 4z" fill="#5a3620"/>'
-        f'<path d="M270 168q12 2 24 0v12h-22z" fill="#b98a68"/>'
-        # torso: shirt, waistcoat, jacket
-        f'<path d="M290 176C312 158 372 156 412 168L414 212H290z" fill="{suit}"/>'
-        f'<path d="M300 172C320 162 360 160 392 166l-4 10C360 170 326 172 304 182z" fill="#3c4148"/>'
-        f'<path d="M292 178c8-6 16-8 24-8l-2 12c-8 0-14 2-20 6z" fill="{shirt}"/>'
-        # arm folded over the chest, hands clasped
-        f'<path d="M300 186C318 170 346 162 366 160l4 10C350 174 326 184 308 196z" fill="#383c43"/>'
-        f'<ellipse cx="370" cy="162" rx="9" ry="6" fill="{skin}"/>'
-        f'<ellipse cx="378" cy="160" rx="7" ry="5" fill="#c9987a"/>'
-        # head on the armrest, face up
-        f'<ellipse cx="262" cy="160" rx="19" ry="16" fill="{skin}"/>'
-        f'<path d="M270 146c3-5 7-7 10-6-1 3-3 5-6 7z" fill="{skin}"/>'
-        f'<path d="M262 156c4 1 8 1 12-1" stroke="#7a5038" stroke-width="1.4" stroke-linecap="round" fill="none"/>'
-        + "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{hair}"/>' for x, y, r in
-                  [(248, 152, 9), (244, 164, 8.5), (252, 144, 7.5), (262, 141, 7), (240, 156, 6.5),
-                   (250, 172, 6.5), (256, 148, 6), (246, 146, 5.5), (270, 143, 4.5)])
-        + "".join(f'<circle cx="{x}" cy="{y}" r="1.6" fill="#a37a3c"/>' for x, y in
-                  [(246, 150), (252, 158), (243, 166), (258, 145), (250, 140)])
-    )
+    W, H = 880, 380
+    floor = 304
     zs = "".join(
         f'<g class="z" style="animation-delay:{i * 1.3}s">'
-        + text(292 + i * 15, 140 - i * 16, "z", "serif", 12 + i * 4, GOLD, font_style="italic", opacity=f"{.85 - i * .2}")
+        + text(300 - i * 10, 160 - i * 15, "z", "serif", 13 + i * 4, GOLD, font_style="italic", opacity=f"{.9 - i * .2}")
         + "</g>" for i in range(3))
+    scene = chesterfield() + jane() + zs + teacup_side(166, floor) + floor_lamp(776, floor)
     body = [
         f'<rect width="{W}" height="{H}" rx="14" fill="{NIGHT}"/>',
         f'<rect width="{W}" height="{H}" rx="14" fill="url(#pool)"/>',
+        f'<rect width="{W}" height="{H}" rx="14" fill="url(#lampglow)"/>',
+        f'<path d="M30 {floor + 20 + 4}H{W - 30}" stroke="#000" stroke-opacity=".0"/>',
         f'<rect width="{W}" height="{H}" rx="14" filter="url(#grain)"/>',
         f'<rect x="18.5" y="18.5" width="{W - 37}" height="{H - 37}" rx="6" fill="none" stroke="{GOLD}" stroke-opacity=".3"/>',
-        text(W / 2, 58, "THE CONSULTANT IS RESTING HIS EYES", "type", 12, GOLD, text_anchor="middle", letter_spacing="5"),
-        text(W / 2, 86, "leave a lead. he’ll have read it before he wakes.", "serif", 21, "#b9ae99",
+        text(W / 2, 56, "THE CONSULTANT IS RESTING HIS EYES", "type", 12, GOLD, text_anchor="middle", letter_spacing="5"),
+        text(W / 2, 84, "leave a lead. he’ll have read it before he wakes.", "serif", 21, "#b9ae99",
              font_style="italic", text_anchor="middle"),
-        sofa, man, zs,
+        f'<g transform="translate(0 22)">{scene}</g>',
     ]
     defs = (GRAIN + PAPER +
-            '<radialGradient id="pool" cx=".5" cy=".72" r=".55"><stop offset="0" stop-color="#3a2f24" stop-opacity=".9"/>'
+            '<radialGradient id="pool" cx=".5" cy=".7" r=".55"><stop offset="0" stop-color="#3a2f24" stop-opacity=".85"/>'
             '<stop offset="1" stop-color="#3a2f24" stop-opacity="0"/></radialGradient>'
-            '<linearGradient id="leather" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a4a28"/>'
-            '<stop offset="1" stop-color="#4a2a15"/></linearGradient>'
-            '<linearGradient id="seat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a5630"/>'
-            '<stop offset="1" stop-color="#55311a"/></linearGradient>'
-            '<radialGradient id="roll" cx=".45" cy=".35" r=".7"><stop offset="0" stop-color="#9a6438"/>'
-            '<stop offset="1" stop-color="#5a3319"/></radialGradient>')
-    css = ("@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(4px,-5px)}}"
+            '<radialGradient id="lampglow" cx=".88" cy=".42" r=".42"><stop offset="0" stop-color="#e8b86a" stop-opacity=".22"/>'
+            '<stop offset="1" stop-color="#e8b86a" stop-opacity="0"/></radialGradient>'
+            '<linearGradient id="cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd995" stop-opacity=".12"/>'
+            '<stop offset="1" stop-color="#ffd995" stop-opacity="0"/></linearGradient>'
+            '<linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b06a"/>'
+            '<stop offset="1" stop-color="#f6dca2"/></linearGradient>'
+            '<linearGradient id="brass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6b5530"/>'
+            '<stop offset=".5" stop-color="#c9a65e"/><stop offset="1" stop-color="#5a4626"/></linearGradient>'
+            '<linearGradient id="leather" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#80502b"/>'
+            '<stop offset="1" stop-color="#43250f"/></linearGradient>'
+            '<linearGradient id="seat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8f5a32"/>'
+            '<stop offset="1" stop-color="#4f2c15"/></linearGradient>'
+            '<radialGradient id="roll" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#a06a3c"/>'
+            '<stop offset="1" stop-color="#5a3319"/></radialGradient>'
+            '<linearGradient id="wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1c0f07"/>'
+            '<stop offset=".45" stop-color="#5a3519"/><stop offset="1" stop-color="#1c0f07"/></linearGradient>'
+            '<linearGradient id="suit" gradientUnits="userSpaceOnUse" x1="0" y1="110" x2="0" y2="225">'
+            '<stop offset="0" stop-color="#6a6158"/><stop offset=".35" stop-color="#4a443d"/><stop offset="1" stop-color="#25221e"/></linearGradient>'
+            '<linearGradient id="shoe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a5a32"/>'
+            '<stop offset="1" stop-color="#3a2212"/></linearGradient>'
+            '<linearGradient id="skinF" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#f0c7a2"/>'
+            '<stop offset=".6" stop-color="#dcab84"/><stop offset="1" stop-color="#c08a66"/></linearGradient>'
+            '<linearGradient id="hairF" gradientUnits="userSpaceOnUse" x1="18" y1="0" x2="-20" y2="0">'
+            '<stop offset="0" stop-color="#e2bd72"/><stop offset=".5" stop-color="#c79a4e"/><stop offset="1" stop-color="#9a7136"/></linearGradient>'
+            '<linearGradient id="chinaSide" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d7d1c4"/>'
+            '<stop offset=".35" stop-color="#fbfaf6"/><stop offset="1" stop-color="#bdb6a7"/></linearGradient>')
+    css = ("@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-4px,-5px)}}"
            ".z{animation:drift 3.9s ease-in-out infinite}"
-           "@media (prefers-reduced-motion:reduce){.z{animation:none}}")
-    return svg(W, H, "Patrick Jane asleep on his brown leather couch. The consultant is resting his eyes.",
+           "@keyframes rise{0%{opacity:0;transform:translateY(6px)}40%{opacity:.4}100%{opacity:0;transform:translateY(-10px)}}"
+           ".steam path{opacity:.3;animation:rise 3.2s ease-in-out infinite}"
+           "@media (prefers-reduced-motion:reduce){.z,.steam path{animation:none}}")
+    return svg(W, H, "Patrick Jane asleep on his brown leather couch, teacup on the floor. The consultant is resting his eyes.",
                "".join(body), defs, css)
 
 
