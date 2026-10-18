@@ -29,6 +29,13 @@ PLAN = [
     "and routers that pick the smallest model that can do the job.",
     "web, mobile or desktop: whatever screen it has to reach.",
 ]
+AWARDS = [
+    "Sambhaash AI, Namespace Hackathon:",
+    "3rd place globally, Sarvam AI track: $200 in Sarvam AI credits",
+    "for a high-fidelity conversational agent built on Bulbul v3.",
+    "Top 50 globally, overall: $20 cash prize,",
+    "Work, Finance & Digital Economy theme.",
+]
 
 # Icon ids come from skillicons.dev unless listed in SIMPLE or CUSTOM.
 STACK = [
@@ -379,6 +386,7 @@ def plan():
     wx, wy, tw = 92, 14, 696
     session = [
         ("cat ~/.plan", [[(line, "#f2f4f5" if i == 0 else "#c3cad1", 0)] for i, line in enumerate(PLAN)]),
+        ("cat ~/.awards", [[(line, "#f2f4f5" if i == 0 else "#c3cad1", 0)] for i, line in enumerate(AWARDS)]),
     ]
     lines = sum(1 + len(rows) for _, rows in session) + 1
     th = 53 + (lines - 1) * LH + 20
