@@ -2,7 +2,7 @@
 
 <img src="./assets/desktop.svg" alt="Rahul L S — full-stack developer, cross-platform developer, AI systems builder. building, breaking, becoming…" />
 
-<img src="./assets/plan.svg" alt="Full-stack developer, gone deep on agentic AI. I build products where the model is one moving part of a real system: agents that hold a phone call, retrieval that walks a knowledge graph, and routers that pick the smallest model that can do the job. Web, mobile or desktop: whatever screen it has to reach. Sambhaash AI, Namespace Hackathon: 3rd place globally in the Sarvam AI track, $200 in Sarvam AI credits. Top 50 globally overall, $20 cash prize, Work, Finance & Digital Economy theme." />
+<img src="./assets/plan.svg" alt="Software engineer building AI systems end to end. RAG pipelines, multi-agent workflows and voice agents, served by FastAPI and Node.js backends on Postgres, Neo4j and Redis, and shipped through React, Flutter and Tauri clients. From the model call to the screen. Sambhaash AI, Namespace Hackathon: 3rd place globally in the Sarvam AI track, $200 in Sarvam AI credits. Top 50 globally overall, $20 cash prize, Work, Finance & Digital Economy theme." />
 
 <img src="./assets/stack.svg" alt="Stack — Languages: C++, Python, JavaScript, TypeScript, Dart. Client-side: React, Next.js, Tailwind CSS, Flutter, Tauri, HTML5, CSS3. Server-side: Node.js, Express, FastAPI, Flask. Databases: PostgreSQL, MongoDB, Redis, Neo4j, Pinecone, ChromaDB, pgvector, Turso, Supabase, Firebase. AI-ML: scikit-learn, PyTorch, TensorFlow, LangChain, LangGraph. Tools: Git, GitHub, Postman, Cloudinary, Twilio, Docker, AWS." />
 

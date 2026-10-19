@@ -17,17 +17,16 @@ CACHE = Path(__file__).resolve().parent / ".cache"
 NAME = "Rahul L S"
 HANDLE = "Rahul-8283"
 ROLES = [
-    ("Web", "Full-stack developer"),
-    ("Apps", "Cross-platform developer"),
+    ("Dev", "Software engineer"),
     ("AI", "AI systems builder"),
 ]
 MOTTO = "building, breaking, becoming…"
 PLAN = [
-    "full-stack developer, gone deep on agentic AI.",
-    "i build products where the model is one moving part of a real system:",
-    "agents that hold a phone call, retrieval that walks a knowledge graph,",
-    "and routers that pick the smallest model that can do the job.",
-    "web, mobile or desktop: whatever screen it has to reach.",
+    "software engineer building AI systems end to end.",
+    "RAG pipelines, multi-agent workflows and voice agents,",
+    "served by FastAPI and Node.js backends on Postgres, Neo4j and Redis,",
+    "and shipped through React, Flutter and Tauri clients.",
+    "from the model call to the screen.",
 ]
 AWARDS = [
     "Sambhaash AI, Namespace Hackathon:",
